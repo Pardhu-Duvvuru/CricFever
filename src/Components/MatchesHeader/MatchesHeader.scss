@@ -1,0 +1,22 @@
+.matches-header {
+    .navbar {
+        height: 25px;
+        background-color: #009270;
+        color: white;
+        .container {
+            height: 25px;
+            .nav-link {
+                font-size: 12px;
+                color: #fff;
+                padding: 10px;
+                cursor: pointer;
+                display: inline-block;
+                max-width: 140px;
+            }
+            .navbar-brand {
+                color: white;
+                font-size: 16px;
+            }
+        }
+    }
+}
