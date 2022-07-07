@@ -1,0 +1,43 @@
+.current-matches {
+    .title {
+        padding: 10px 16px;
+    }
+    .matches {
+        border-right: 1px solid #dee2e6;
+        min-height: calc(100vh - 245px);
+        padding-left: 26px;
+        .match-info {
+            .header {
+                padding: 10px 10px 5px;
+                background: #ecebeb;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .body {
+                padding-top: 10px;
+                .match-name {
+                    font-weight: bold;
+                    text-decoration: underline;
+                }
+                .score-info {
+                    background: #f0f0f0;
+                    width: 50%;
+                    margin: 20px 0px;
+                    cursor: pointer;
+                    padding: 20px;
+                    border-left: 2px solid #1866db;
+                    .status {
+                        color: #1866db;;
+                    }
+                }
+                .no-score {
+                    border-left: 2px solid #a36501;
+                    padding: 10px;
+                    background: #f5f5f5;
+                    color: #a36501;
+                    margin: 20px 0px;
+                }
+            }
+        }
+    }
+}

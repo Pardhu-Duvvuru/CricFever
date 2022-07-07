@@ -1,8 +1,14 @@
 .app {
   background-color: #e3e6e3;
+  min-height: 100vh;
 }
 .text-overflow {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.main-body {
+  background-color: white;
+  margin-top: 10px;
+  min-height: calc(100vh - 85px);
 }
