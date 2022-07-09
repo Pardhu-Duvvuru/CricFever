@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import axios from "axios";
 import { Row, Col } from 'react-bootstrap';
 
 import "./CurrentMatches.scss";
 import { API_ENDPOINT, API_KEY, CURRENT_MACTCHES } from "../../../Common/Constants/Constants";
+const UpcomingMatches = lazy(() => import("../UpcomingMatches/UpcomingMatches"));
 
 function CurrentMatches() {
     const [key, setKey] = useState('current');
@@ -16,7 +17,6 @@ function CurrentMatches() {
             setMatches(data);
         })
     }, []);
-    console.log(matches)
     return (
         <div className="current-matches">
             <h4 className='title'>Live Cricket Scores</h4>
@@ -47,6 +47,12 @@ function CurrentMatches() {
                                                         </div> : <div className='no-score'>{match.status}</div>}
                                                     </div>
                                                 </div>
+                                                <div className='match-nav'>
+                                                    <span className='nav border-right'>Live Score</span>
+                                                    <span className='nav border-right'>Score Card</span>
+                                                    <span className='nav border-right'>Full Commentary</span>
+                                                    <span className='nav'>News</span>
+                                                </div>
                                             </div>
                                         )
                                     })
@@ -58,8 +64,13 @@ function CurrentMatches() {
                     <Tab eventKey="future" title="Recent">
                         Current & Future Series
                     </Tab>
-                    <Tab eventKey="teams" title="Upcoming">
-                        Teams list
+                    <Tab eventKey="upcoming" title="Upcoming">
+                        <Row>
+                            <Col xs={8} className="matches">
+                                <UpcomingMatches />
+                            </Col>
+                            <Col xs={4}>Videos</Col>
+                        </Row>
                     </Tab>
                 </Tabs>
             </div>

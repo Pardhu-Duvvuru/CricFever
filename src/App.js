@@ -14,7 +14,7 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Container fluid>
           <Row>
-            <Col>
+            <Col xs={{span: 10, offset: 1}}>
               <HeaderComponent />
               <MatchesHeaderComponent />
               <div className='main-body'>

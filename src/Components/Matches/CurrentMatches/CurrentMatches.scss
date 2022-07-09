@@ -27,7 +27,7 @@
                     padding: 20px;
                     border-left: 2px solid #1866db;
                     .status {
-                        color: #1866db;;
+                        color: #1866db;
                     }
                 }
                 .no-score {
@@ -37,6 +37,18 @@
                     color: #a36501;
                     margin: 20px 0px;
                 }
+            }
+        }
+        .match-nav {
+            display: inline-flex;
+            margin-bottom: 10px;
+            .nav {
+                color: #1866db;
+                padding: 0px 10px;
+                cursor: pointer;
+            }
+            .border-right {
+                border-right: 1px solid #666;
             }
         }
     }
