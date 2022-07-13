@@ -16,10 +16,10 @@ function App() {
         <Container fluid>
           <Row>
             <Col xs={{span: 10, offset: 1}}>
-              <HeaderComponent />
-              <MatchesHeaderComponent />
               <div className='main-body'>
                 <Router>
+                <HeaderComponent />
+                <MatchesHeaderComponent />
                   <Suspense fallback={<div>Loading...</div>}>
                     <Routes>
                       <Route path="/" element={<Navigate replace to='/cric-scores'/>}/>

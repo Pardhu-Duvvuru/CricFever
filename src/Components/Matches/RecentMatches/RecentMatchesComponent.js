@@ -1,10 +1,17 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 
 import "../CurrentMatches/CurrentMatches.scss";
 
 
 function RecentMatchesComponent(props) {
+    const Navigate = useNavigate();
+
+    const goToScoreCard = (match) => {
+        Navigate(`/match-score/${match.id}`);
+    }
+
     return (
         <div className="recent-matches">
             <Row>
@@ -28,7 +35,7 @@ function RecentMatchesComponent(props) {
                                     </div>
                                     <div className='match-nav'>
                                         <span className='nav border-right'>Live Score</span>
-                                        <span className='nav border-right'>Score Card</span>
+                                        <span className='nav border-right' onClick={()=>goToScoreCard(match)}>Score Card</span>
                                         <span className='nav border-right'>Full Commentary</span>
                                         <span className='nav'>News</span>
                                     </div>

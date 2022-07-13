@@ -5,6 +5,9 @@
         color: white;
         .container {
             height: 25px;
+            .title {
+                cursor: pointer;
+            }
             .nav-link {
                 font-size: 12px;
                 color: #fff;

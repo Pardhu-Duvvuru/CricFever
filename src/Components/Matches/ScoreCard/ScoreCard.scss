@@ -1,0 +1,40 @@
+.score-card-page {
+    padding: 20px 0 5px 20px;
+    .matche-info {
+        .info {
+            color: #666;
+        }
+    }
+    .tab-section {
+        .matches {
+            border-right: 1px solid #dee2e6;
+            min-height: calc(100vh - 245px);
+            padding-left: 26px;
+            .status {
+                color: #1866db;
+            }
+            .score-header {
+                background-color: #009270;
+                padding: 10px;
+                height: 45px;
+                color: white;
+            }
+            .table-header {
+                background-color: #ecebeb;
+                color: #666;
+            }
+            .player-name {
+                color: #1866db;
+                cursor: pointer;
+            }
+        }
+    }
+    .match-facts {
+        .match-info {
+            tr {
+                border-style: none !important;
+                border-color: white;
+            }
+        }
+    }
+}

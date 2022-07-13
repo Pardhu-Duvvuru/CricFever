@@ -1,7 +1,6 @@
 import React, { useState, useEffect, lazy } from 'react';
-import { Tabs, Tab } from 'react-bootstrap';
+import { Tabs, Tab, Row, Col } from 'react-bootstrap';
 import axios from "axios";
-import { Row, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 
 import "./CurrentMatches.scss";
@@ -62,7 +61,7 @@ function CurrentMatches() {
                                                         <div>{match.date} . {match.venue}</div>
                                                         {match.score.length ? <div className='score-info'>
                                                             <div>{match.teamInfo[0]?.shortname} &nbsp; {`${match.score?.[0]?.r}-${match.score[0]?.w}(${match.score[0]?.o})`}</div>
-                                                            <div>{match.teamInfo[1]?.shortname} &nbsp; {`${match.score[1]?.r}-${match.score[1]?.w}(${match.score[1]?.o})`}</div>
+                                                            <div>{match.teamInfo[1]?.shortname} &nbsp; {match.score[1] ? `${match.score[1]?.r}-${match.score[1]?.w}(${match.score[1]?.o})`: ''}</div>
                                                             <div className='status'>{match.status}</div>
                                                         </div> : <div className='no-score'>{match.status}</div>}
                                                     </div>
