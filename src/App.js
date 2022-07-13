@@ -6,7 +6,8 @@ import './App.scss';
 
 const HeaderComponent = lazy(() => import('./Components/Header/Header'));
 const MatchesHeaderComponent = lazy(() => import('./Components/MatchesHeader/MatchesHeader'));
-const MatchesComponent = lazy(()=> import('./Components/Matches/MatchesComponent'))
+const MatchesComponent = lazy(()=> import('./Components/Matches/MatchesComponent'));
+const ScoreCardComponent = lazy(()=> import("./Components/Matches/ScoreCard/ScoreCardComponent"))
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                     <Routes>
                       <Route path="/" element={<Navigate replace to='/cric-scores'/>}/>
                       <Route path="/cric-scores" element={<MatchesComponent />} />
+                      <Route path="/match-score/:id" element={<ScoreCardComponent />} />
                     </Routes>
                   </Suspense>
                 </Router>

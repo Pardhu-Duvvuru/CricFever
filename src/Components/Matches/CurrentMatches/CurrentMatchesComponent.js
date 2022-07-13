@@ -2,21 +2,41 @@ import React, { useState, useEffect, lazy } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import axios from "axios";
 import { Row, Col } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 
 import "./CurrentMatches.scss";
 import { API_ENDPOINT, API_KEY, CURRENT_MACTCHES } from "../../../Common/Constants/Constants";
+
 const UpcomingMatches = lazy(() => import("../UpcomingMatches/UpcomingMatches"));
+const RecentMatchesComponent = lazy(() => import("../RecentMatches/RecentMatchesComponent"));
 
 function CurrentMatches() {
     const [key, setKey] = useState('current');
     const [matches, setMatches] = useState([]);
+    const [recentMatches, setRecentMatches] = useState([]);
+
+    const Navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`${API_ENDPOINT}${CURRENT_MACTCHES}${API_KEY}&offset=0`).then((res) => {
-            let data = res.data;
+            let data = [];
+            let recentMatches = [];
+            res.data.forEach((mat) => {
+                if (mat?.status?.toLowerCase()?.includes('won')) {
+                    recentMatches.push(mat);
+                } else {
+                    data.push(mat);
+                }
+            })
+            setRecentMatches(recentMatches);
             setMatches(data);
         })
     }, []);
+
+    const goToScoreCard = (match) => {
+        Navigate(`/match-score/${match.id}`);
+    }
+
     return (
         <div className="current-matches">
             <h4 className='title'>Live Cricket Scores</h4>
@@ -49,7 +69,7 @@ function CurrentMatches() {
                                                 </div>
                                                 <div className='match-nav'>
                                                     <span className='nav border-right'>Live Score</span>
-                                                    <span className='nav border-right'>Score Card</span>
+                                                    <span className='nav border-right' onClick={()=>goToScoreCard(match)}>Score Card</span>
                                                     <span className='nav border-right'>Full Commentary</span>
                                                     <span className='nav'>News</span>
                                                 </div>
@@ -61,8 +81,13 @@ function CurrentMatches() {
                             <Col xs={4}>Videos</Col>
                         </Row>
                     </Tab>
-                    <Tab eventKey="future" title="Recent">
-                        Current & Future Series
+                    <Tab eventKey="recent" title="Recent">
+                        <Row>
+                            <Col xs={8} className="matches">
+                                <RecentMatchesComponent data={recentMatches} />
+                            </Col>
+                            <Col xs={4}>Videos</Col>
+                        </Row>
                     </Tab>
                     <Tab eventKey="upcoming" title="Upcoming">
                         <Row>
