@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, lazy } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 
 import CurrentMatches from "./CurrentMatches/CurrentMatchesComponent";
 import "./MatchesComponent.scss";
+const TeamsListComponent = lazy(()=>import("./TeamsList/TeamsListComponent"));
 
 function MatchesComponent() {
     const [key, setKey] = useState('current');
@@ -18,11 +19,11 @@ function MatchesComponent() {
                 <Tab eventKey="current" title="Current Matches">
                     <CurrentMatches />
                 </Tab>
-                <Tab eventKey="future" title="Current & Future Series">
+                {/* <Tab eventKey="future" title="Current & Future Series">
                     Current & Future Series
-                </Tab>
+                </Tab> */}
                 <Tab eventKey="teams" title="Teams">
-                    Teams list
+                    <TeamsListComponent />
                 </Tab>
             </Tabs>
         </div>

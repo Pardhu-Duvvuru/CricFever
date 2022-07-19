@@ -1,0 +1,17 @@
+.teams-list {
+    padding-left: 15px;
+    .teams {
+        .team-info {
+            cursor: pointer;
+            .team-img {
+                width: 100px;
+                height: 50px;
+                margin-right: 40px;
+                margin-left: 40px;
+            }
+        }
+    }
+    .news {
+        border-left: 1px solid #666;
+    }
+}
